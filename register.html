@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://media.istockphoto.com/id/1962678088/photo/survey-form-check-marks-on-checklist-document-control-filling-online-form-and-answering.jpg?s=1024x1024&w=is&k=20&c=qUFAGwg72UGSVaaoIx2tYMW_PVRp5rVgp3B92rHdOo0='); /* Add your image URL here */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 500px; /* Increased size */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(15deg);
+            transition: transform 0.5s ease;
+        }
+        .container:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.8em; /* Increased font size */
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            background-color: #e7f7e7;
+            color: #4CAF50;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        select option {
+            padding: 10px;
+        }
+        .container img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Registration</h1>
+       {% if message %}
+  <div class="alert alert-success" style="font-size: 18px;">
+    {{ message }}
+  </div>
+{% endif %}
+
+        <form method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br>
+
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+
+            <label for="contact">Contact:</label>
+            <input type="text" name="contact" id="contact" required><br>
+
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state" required><br>
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" required><br>
+
+            <label for="year_of_study">Year of Study:</label>
+            <input type="text" name="year_of_study" id="year_of_study" required><br>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

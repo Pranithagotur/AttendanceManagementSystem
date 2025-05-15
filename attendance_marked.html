@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Percentage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media.istockphoto.com/id/1152437820/photo/circle-of-chairs-with-percentage-sign-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=Z21pb4qtt-beOnfsKJ_HTJNgf9KUQuxbHzDdSl5R0h8=') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 32px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+
+        th, td {
+            padding: 18px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        <h2>Attendance Percentage of All Users</h2>
+
+        {% if user_data %}
+        <table>
+            <tr>
+                <th>Register ID</th>
+                <th>Name</th>
+                <th>Attendance Count</th>
+                <th>Attendance %</th>
+            </tr>
+            {% for user in user_data %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.attended }}</td>
+                <td>{{ user.percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No users found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

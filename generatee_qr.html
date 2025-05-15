@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Codes for Attendance</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://plus.unsplash.com/premium_photo-1683120733115-b9f354c73f65?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            color: #fff;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        button {
+            padding: 8px 14px;
+            font-weight: bold;
+            background-color: #00c9a7;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #008f7a;
+        }
+
+        .qr-container {
+            margin-top: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: inline-block;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
+        img.qr-code {
+            width: 250px;
+            height: 250px;
+            border: 10px solid white;
+            background-color: white;
+            border-radius: 12px;
+        }
+
+        .message {
+            margin-top: 10px;
+            color: #00ff90;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>QR Codes for Attendance</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Registration ID</th>
+            <th>Attendance</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+<tr>
+    <td>{{ user.name }}</td>
+    <td>{{ user.registration_id }}</td>
+    <td>{{ user.attendance }}</td>
+    <td>
+        <form method="post">
+    <input type="hidden" name="user_id" value="{{ user.id }}">
+    <button type="submit">Generate QR</button>
+</form>
+    </td>
+</tr>
+{% endfor %}
+    </table>
+
+    {% if download_link %}
+    <div class="qr-container">
+        <h3>Generated QR Code</h3>
+        <img class="qr-code" src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+        <br>
+        <a href="{{ download_link }}" download class="download-btn">📥 Download QR Code</a>
+    </div>
+    {% endif %}
+
+</body>
+</html>

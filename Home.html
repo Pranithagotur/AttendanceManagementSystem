@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://media.istockphoto.com/id/157686859/photo/abstract-light-blue-background-textured-effect-xxxl.jpg?s=2048x2048&w=is&k=20&c=1txjbdJKcNMww5YPJ4na6awpW26k1QF1tVeV7jWtDmU=') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+    }
+
+    /* Overlay for better readability */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%; /* white overlay with some transparency */
+      z-index: 0;
+    }
+
+    .container {
+      padding-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-custom {
+      width: 80%;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.05);
+    }
+
+    .dashboard-title {
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .scroll-section {
+      max-height: 85vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(160, 199, 221, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h2 class="dashboard-title mb-5">Welcome to Attendance Dashboard</h2>
+
+  <div class="scroll-section">
+    <!-- Section 1 -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="https://media.istockphoto.com/id/1279460824/photo/take-close-up-pictures-of-the-finger-scanner-on-the-fingerprint-reader-the-concept-of-data.jpg?s=1024x1024&w=is&k=20&c=Iyp76wPWs0TMFgUEm6MQlW57G7jEhpbc_bWIe8Hg1ok=" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6 text-center">
+        <a href="/register" class="btn btn-primary btn-custom">Register Users</a>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="row align-items-center flex-md-row-reverse mb-5">
+      <div class="col-md-6">
+        <img src="https://media.istockphoto.com/id/1458178594/photo/update-software-system-in-computer-man-using-smartphone-upgrade-program-business-technology.webp?a=1&b=1&s=612x612&w=0&k=20&c=gH8CNHIWzUvwr5qUVYVZa3AExroeMK6qxS8DnpG93wE=" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6 text-center">
+        <a href="/update" class="btn btn-secondary btn-custom">Update Users</a>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="https://media.istockphoto.com/id/1487255881/photo/let-me-scan-to-register-first.jpg?s=1024x1024&w=is&k=20&c=Pcp_GSpq4mjblgsF6R1cV7WiOyIkWv7EQ01F1yZMubk=" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6 text-center">
+        <a href="/qr-attendance" class="btn btn-success btn-custom">QR Attendance</a>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="row align-items-center flex-md-row-reverse mb-5">
+      <div class="col-md-6">
+        <img src="https://media.istockphoto.com/id/144327255/photo/magnifying-glass-zooming-in-on-100-with-other-numbers.jpg?s=2048x2048&w=is&k=20&c=FX-kwpLTEYtl6SD0FND19WF7E6kGR4UAHP6qfFeoDq8=" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6 text-center">
+        <a href="/attendance-percentage" class="btn btn-warning btn-custom">Attendance Percentage</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
