@@ -1,0 +1,4 @@
+Flask==2.3.2
+flask-mysqldb==1.0.1
+qrcode==7.4.2
+
